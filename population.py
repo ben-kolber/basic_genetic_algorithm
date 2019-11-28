@@ -1,9 +1,7 @@
 import numpy
 import time
 import random
-
 from dna import dna
-
 
 class population:
     def __init__(self, pop_size, target):
