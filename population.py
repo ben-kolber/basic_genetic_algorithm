@@ -6,19 +6,19 @@ from dna import dna
 
 
 class population:
-
     def __init__(self, pop_size, target):
         self.pop_size = pop_size
         self.target = target
         self.pool = self.generate_pool()
 
+    # population made of DNA objects 
     def generate_pool(self):
         population = []
         for i in range(self.pop_size):
             population.append(dna(self.target))
         return population
 
-    # score and fitness print
+    # print score and fitness 
     def print_population(self):
         self.sort_population()
         for i in range(self.pop_size):
@@ -38,6 +38,10 @@ class population:
     def run_mating_pool(self):
         self.pool = self.mating_pool(0.3)
 
+    # generate a mating pool based on fitness of parents
+    # The higher the fitness, the more instances of that parent will 
+    # appear in the mating pool 
+    # There is also an added mutation factor for every X child
     def mating_pool(self, mutation_rate):
         parents = []
         children = []
